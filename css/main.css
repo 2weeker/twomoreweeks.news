@@ -422,6 +422,67 @@ a:hover { text-decoration: underline; }
     to   { transform: translateX(calc(-100% - 1.2rem)); }
 }
 
+/* ── HAPPENINGS BANNER ─────────────────────────── */
+/* Urgent strip under the marquee linking to the breaking-news section. */
+.happenings-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--accent);
+    color: var(--paper);
+    padding: 0.6rem 1.4rem;
+    border-bottom: 2px solid #8a1e12;
+    transition: background 0.15s;
+}
+
+.happenings-banner:hover {
+    background: #8a1e12;
+    text-decoration: none;
+}
+
+.happenings-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.55rem;
+    background: var(--paper);
+    color: var(--accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+    animation: breaking-pulse 1.4s ease-in-out infinite;
+}
+
+.happenings-headline {
+    font-family: var(--font-serif, 'Noticia Text', serif);
+    font-weight: 700;
+    font-size: 0.95rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+}
+
+.happenings-cta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    opacity: 0.9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .happenings-label { animation: none; }
+}
+
+@media (max-width: 600px) {
+    .happenings-cta { display: none; }
+}
+
 /* ── SITE NOTICE BANNER ────────────────────────── */
 .site-notice {
     display: flex;
@@ -1161,7 +1222,48 @@ a.card-tag:hover {
     font-size: 0.92rem;
 }
 
-/* Image card */
+/* ── BREAKING ──────────────────────────────────── */
+/* Urgent red badge + accent border. Pulse respects reduced-motion. */
+.breaking-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    white-space: nowrap;
+    animation: breaking-pulse 1.4s ease-in-out infinite;
+}
+
+.breaking-badge--article {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.7rem;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+}
+
+.card--breaking {
+    border-left: 4px solid var(--accent);
+    box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.article-full--breaking {
+    border-top: 3px solid var(--accent);
+}
+
+@keyframes breaking-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .breaking-badge { animation: none; }
+}
+
+/* ── Image card ── */
 .card--image {
     padding: 0;
 }
@@ -1785,6 +1887,15 @@ a.card-tag:hover {
 
 /* ── ARTICLE FULL ──────────────────────────────────────────────────────────── */
 .article-main { flex: 1; padding: 1.25rem 2.5rem 2rem; min-width: 0; }
+
+/* Contact page has no right ad-rail, so its centered content drifts right of
+   the viewport center where the masthead title/search sit. Reserve space equal
+   to the left sidebar (215px) so the centered box aligns with the masthead. */
+.article-main--balanced { margin-right: 215px; }
+
+@media (max-width: 900px) {
+    .article-main--balanced { margin-right: 0; }
+}
 
 .article-full { max-width: 720px; margin: 0 auto; }
 

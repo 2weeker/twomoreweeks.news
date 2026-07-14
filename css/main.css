@@ -1263,6 +1263,60 @@ a.card-tag:hover {
     .breaking-badge { animation: none; }
 }
 
+/* ── LATEST / URGENT (per-section newest-article highlight) ── */
+.latest-urgent {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin: 0 0 1rem;
+    padding: 0.7rem 0.9rem;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    box-shadow: 0 2px 10px rgba(181, 41, 28, 0.35);
+    animation: latest-pulse 1.6s ease-in-out infinite;
+}
+.latest-urgent:hover { text-decoration: none; color: #fff; opacity: 0.92; }
+.latest-urgent-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: #fff;
+    color: var(--accent);
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+    white-space: nowrap;
+}
+.latest-urgent-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.25;
+}
+@keyframes latest-pulse {
+    0%, 100% { box-shadow: 0 2px 10px rgba(181, 41, 28, 0.35); }
+    50%      { box-shadow: 0 2px 18px rgba(181, 41, 28, 0.65); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .latest-urgent { animation: none; }
+}
+
+/* ── Greentext (4chan /sp/ parody) ── */
+/* Literal ">" preserved as text; colored the classic 4chan green. */
+.greentext {
+    color: #789922;
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    white-space: pre-line;
+    margin: 1rem 0;
+    padding: 0.1rem 0;
+}
+
 /* ── Image card ── */
 .card--image {
     padding: 0;

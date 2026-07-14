@@ -39,7 +39,7 @@ const sidebarDateEl = document.querySelector('.sidebar-date');
 if (dateEl) {
     const updateDate = () => {
         const now = new Date();
-        const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const opts = { year: 'numeric', month: 'long' };
         const formatted = now.toLocaleDateString('en-US', opts);
         dateEl.textContent = formatted;
         if (sidebarDateEl) sidebarDateEl.textContent = formatted;
